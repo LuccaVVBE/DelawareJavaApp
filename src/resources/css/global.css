@@ -1,0 +1,128 @@
+.root {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-fill: black;
+}
+
+.login-box {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-padding: 20px;
+    -fx-border-radius: 10px;
+}
+
+.error-text {
+    -fx-text-fill: red;
+    -fx-font-size: 12px;
+}
+
+.card {
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-padding: 20px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-width: 1px;
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 4);
+}
+
+.label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+}
+
+.choice-box {
+    -fx-min-width: 200px;
+    /*-fx-padding: 5px;*/
+}
+
+.button {
+    -fx-background-color: #ef463c;
+    -fx-text-fill: #ffffff;
+    -fx-border-radius: 5px;
+    -fx-min-width: 90px;
+    -fx-min-height: 30px;
+    -fx-padding: 5px;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #ef661c;
+}
+
+.button:pressed {
+    -fx-background-color: #ef161c;
+}
+
+/* Input Fields */
+.validating-text-field {
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-background-radius: 5px;
+}
+
+.validating-text-field:invalid {
+    -fx-background-color: -fx-box-border, -fx-control-inner-background;
+    -fx-border-color: red;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-background-radius: 5px;
+}
+
+.progress-indicator {
+    -fx-progress-color: red;
+}
+
+
+#error-box {
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+}
+
+.client-details-small {
+    -fx-padding: 5em;
+}
+
+.client-details-large {
+    -fx-padding: 10em;
+}
+
+.order-details-small {
+    -fx-padding: 5em;
+}
+
+.order-details-large {
+    -fx-padding: 10em;
+}
+
+.employee-details-small {
+    -fx-padding: 5em;
+}
+
+.employee-details-large {
+    -fx-padding: 10em;
+}
+
+.carrier-details-small {
+    -fx-padding: 5em;
+}
+
+.carrier-details-large {
+    -fx-padding: 10em;
+}
+.box-details-small {
+    -fx-padding: 5em;
+}
+.box-details-large {
+    -fx-padding: 10em;
+}

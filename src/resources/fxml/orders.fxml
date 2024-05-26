@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane stylesheets="/css/global.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GuiOrdersController">
+    <left>
+        <fx:include fx:id="navbar" source="navbar.fxml" />
+    </left>
+    <center>
+        <HBox BorderPane.alignment="CENTER">
+            <children>
+                <VBox fx:id="ordersBox" >
+                    <HBox alignment="CENTER" spacing="5">
+                        <VBox.margin>
+                            <Insets top="10.0" />
+                        </VBox.margin>
+                        <children>
+                            <Label fx:id="lblOpenOrders" styleClass="title" text="Open orders:">
+                                <HBox.margin>
+                                    <Insets left="10.0" />
+                                </HBox.margin>
+                            </Label>
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label styleClass="title" text="Company:">
+                                <HBox.margin>
+                                    <Insets right="10.0" />
+                                </HBox.margin>
+                            </Label>
+                            <ChoiceBox fx:id="companyChoiceBox" maxWidth="50" prefWidth="50.0" />
+                            <Label styleClass="title" text="Status:">
+                                <HBox.margin>
+                                    <Insets right="10.0" />
+                                </HBox.margin>
+                            </Label>
+                            <ChoiceBox fx:id="ordersChoiceBox" maxWidth="50" prefWidth="50.0" />
+                        </children>
+                    </HBox>
+                    <TableView fx:id="ordersTable" nodeOrientation="LEFT_TO_RIGHT" VBox.vgrow="ALWAYS">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" top="10.0" />
+                        </VBox.margin>
+                        <columns>
+                            <TableColumn fx:id="orderIdColumn" prefWidth="123.20001220703125" text="Order ID" />
+                            <TableColumn fx:id="orderCompanyNameColumn" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Company Name" />
+                            <TableColumn fx:id="orderDateColumn" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Order Date" />
+                            <TableColumn fx:id="orderTrackTraceStatusColumn" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Status" />
+                        </columns>
+                  <columnResizePolicy>
+                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
+                    </TableView>
+                </VBox>
+                <StackPane fx:id="rightPane" >
+                    <Label fx:id="instructionLabel" styleClass="title" text="Select an order from the list to view its details" />
+                      <VBox fx:id="orderDetailsBox" alignment="CENTER" spacing="10.0" visible="false">
+                          <children>
+                              <GridPane hgap="10.0" vgap="10.0">
+                                  <GridPane.margin>
+                                      <Insets topRightBottomLeft="5" />
+                                  </GridPane.margin>
+                                  <columnConstraints>
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                  <children>
+                                      <Label styleClass="title" text="Order ID" />
+                                      <Label styleClass="title" text="Date" GridPane.rowIndex="1" />
+                                      <Label styleClass="title" text="Packing Type" GridPane.rowIndex="2" />
+                                      <Label fx:id="orderIdLabel" GridPane.columnIndex="1" />
+                                      <Label fx:id="dateLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                      <Label fx:id="packingTypeLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                  </children>
+                                  <padding>
+                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                  </padding>
+                              </GridPane>
+                              <GridPane hgap="10.0" vgap="10.0">
+                                  <GridPane.margin>
+                                      <Insets topRightBottomLeft="5" />
+                                  </GridPane.margin>
+                                  <columnConstraints>
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                  <children>
+                                      <Label styleClass="title" text="Company Name" />
+                                      <Label styleClass="title" text="Email" GridPane.rowIndex="1" />
+                                      <Label fx:id="companyNameLabel" GridPane.columnIndex="1" />
+                                      <Label fx:id="companyEmailLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                      <Label styleClass="title" text="Carrier" GridPane.rowIndex="2" />
+                                      <ChoiceBox fx:id="carrierChoiceBox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                  </children>
+                                  <padding>
+                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                  </padding>
+                              </GridPane>
+                              <GridPane hgap="10.0" vgap="10.0">
+                                  <GridPane.margin>
+                                      <Insets topRightBottomLeft="15" />
+                                  </GridPane.margin>
+                                  <columnConstraints>
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                  <children>
+                                      <Label styleClass="title" text="Track&amp;Trace Number" GridPane.rowIndex="1" />
+                                      <Label fx:id="tntNumber" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                      <Label styleClass="title" text="Verification Code" GridPane.rowIndex="2" />
+                                      <Label fx:id="tntVerificationCode" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                      <Label styleClass="title" text="Track&amp;Trace Status" GridPane.rowIndex="3" />
+                                      <Label styleClass="title" text="Track&amp;Trace" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                      <ChoiceBox fx:id="orderStatusChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                  </children>
+                                  <padding>
+                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                  </padding>
+                              </GridPane>
+                              <GridPane hgap="10.0" vgap="10.0">
+                                  <GridPane.margin>
+                                      <Insets topRightBottomLeft="5" />
+                                  </GridPane.margin>
+                                  <columnConstraints>
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                  <children>
+                                      <Label styleClass="title" text="Street" GridPane.rowIndex="1" />
+                                      <Label fx:id="streetLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                      <Label styleClass="title" text="Number" GridPane.rowIndex="2" />
+                                      <Label fx:id="numberLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                      <Label styleClass="title" text="City" GridPane.rowIndex="3" />
+                                      <Label fx:id="cityLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                      <Label styleClass="title" text="Zip Code" GridPane.rowIndex="4" />
+                                      <Label fx:id="zipcodeLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                      <Label styleClass="title" text="Country" GridPane.rowIndex="5" />
+                                      <Label fx:id="countryLabel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                      <Label styleClass="title" text="Address" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                  </children>
+                                  <padding>
+                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                  </padding>
+                              </GridPane>
+                              <AnchorPane>
+                                  <children>
+                                      <TableView fx:id="orderItemsTableView" prefWidth="500" prefHeight="111.0" >
+                                          <columns>
+                                              <TableColumn fx:id="itemNameColumn" minWidth="100.0" text="Item Name" />
+                                              <TableColumn fx:id="itemQuantityColumn" maxWidth="150.0" minWidth="50.0" prefWidth="100.0" text="Quantity" />
+                                              <TableColumn fx:id="itemPriceColumn" maxWidth="150.0" minWidth="100.0" prefWidth="100.0" text="Price" />
+                                              <TableColumn fx:id="itemSubtotalColumn" maxWidth="150.0" minWidth="100.0" prefWidth="100.0" text="Subtotal" />
+                                          </columns>
+                              <columnResizePolicy>
+                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                              </columnResizePolicy>
+                                      </TableView>
+                                  </children>
+                              </AnchorPane>
+                              <GridPane>
+                                  <GridPane.margin>
+                                      <Insets topRightBottomLeft="5" />
+                                  </GridPane.margin>
+                                  <columnConstraints>
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                  <children>
+                                      <Label text="Total Price:" />
+                                      <Label fx:id="totalPriceLabel" GridPane.columnIndex="1" />
+                                  </children>
+                              </GridPane>
+
+                              <GridPane hgap="10.0" vgap="10.0">
+                                  <GridPane.margin>
+                                      <Insets topRightBottomLeft="5" />
+                                  </GridPane.margin>
+                                  <columnConstraints>
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                  <children>
+                                      <Button fx:id="saveButton" mnemonicParsing="false" text="Save Changes" GridPane.columnIndex="1" />
+                                  </children>
+                                  <padding>
+                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                  </padding>
+                              </GridPane>
+                          </children>
+                          <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                          </padding>
+                      </VBox>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+                </StackPane>
+            </children>
+        </HBox>
+    </center>
+</BorderPane>

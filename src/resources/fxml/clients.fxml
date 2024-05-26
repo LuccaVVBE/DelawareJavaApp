@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane stylesheets="/css/global.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GuiCompanyController">
+    <left>
+        <fx:include fx:id="navbar" source="navbar.fxml" />
+    </left>
+    <center>
+        <HBox BorderPane.alignment="CENTER">
+            <padding>
+                <Insets left="10.0" top="10.0" />
+            </padding>
+            <children>
+                <VBox fx:id="leftPane" spacing="10">
+                    <children>
+                        <HBox spacing="10">
+                            <children>
+                                <Label styleClass="title" text="Search: " />
+                                <TextField fx:id="txtCompanyName" onKeyPressed="#searchCompany" prefHeight="26.0" prefWidth="222.0" promptText="Company name" />
+                            </children>
+                        </HBox>
+                        <TableView fx:id="companyTable" maxWidth="650.0" prefWidth="650.0" VBox.vgrow="ALWAYS">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" top="10.0" />
+                            </VBox.margin>
+                            <columns>
+                                <TableColumn fx:id="CompanyIdColumn" prefWidth="123.20001220703125" text="Company ID" />
+                                <TableColumn fx:id="CompanyNameColumn" prefWidth="233.60003662109375" text="Company Name" />
+                                <TableColumn fx:id="CompanyOpenOrdersColumn" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Open orders" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                        </TableView>
+                    </children>
+                </VBox>
+                <StackPane fx:id="clientDetailsPane">
+                    <children>
+                        <Label fx:id="instructionLabel" styleClass="title" text="Select a company from the list to view its details" />
+                        <VBox fx:id="companyInfoBox" spacing="10" visible="false">
+                            <children>
+                                <VBox spacing="10">
+                                    <children>
+                                        <HBox>
+                                            <children>
+                                                <VBox prefHeight="222.0" prefWidth="321.0" spacing="10">
+                                                    <children>
+                                                        <Label fx:id="lblCompanyName" styleClass="title" text="Company: " />
+                                                        <Label fx:id="lblCompanyPhone" text="Phone number: " />
+                                                        <HBox spacing="10">
+                                                            <children>
+                                                                <Label alignment="BOTTOM_LEFT" minWidth="-Infinity" prefHeight="18.0" prefWidth="91.0" text="Address: " textAlignment="CENTER" HBox.hgrow="ALWAYS" />
+                                                                <ChoiceBox fx:id="addressNameChoiceBox" prefHeight="26.0" prefWidth="64.0" />
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox spacing="10">
+                                                            <children>
+                                                                <Region prefHeight="162.0" prefWidth="48.0" />
+                                                                <VBox>
+                                                                    <children>
+                                                                        <Label fx:id="lblStreet" text="Street unknown" />
+                                                                        <Label fx:id="lblCity" text="City unknown" />
+                                                                        <Label fx:id="lblCountry" text="Country unknown" />
+                                                                    </children>
+                                                                </VBox>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <Region prefHeight="200.0" prefWidth="200.0" />
+                                                <ImageView fx:id="imgLogo" fitHeight="113.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true">
+                                                    <effect>
+                                                        <DropShadow />
+                                                    </effect>
+                                                    <Image url="@../images/background.png" />
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <Label styleClass="title" text="Company Employee Overview" />
+                                        <TableView fx:id="EmployeeTable">
+                                            <columns>
+                                                <TableColumn fx:id="EmployeeFirstname" prefWidth="128.80005168914795" text="First name" />
+                                                <TableColumn fx:id="EmployeeLastname" minWidth="0.0" prefWidth="159.9999237060547" text="Last name" />
+                                                <TableColumn fx:id="EmployeeEmail" minWidth="5.5999755859375" prefWidth="136.79995117187502" text="E-mail" />
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                            </columnResizePolicy>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+                                <Label styleClass="title" text="All company orders:" />
+                                <TableView fx:id="companyOrdersTable">
+                                    <columns>
+                                        <TableColumn fx:id="CompanyOrderId" prefWidth="75.0" text="Order ID" />
+                                        <TableColumn fx:id="CompanyOrderDate" prefWidth="75.0" text="Order date" />
+                                        <TableColumn fx:id="CompanyOrderStatus" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Order status" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+                </StackPane>
+            </children>
+        </HBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="drawerVBox" prefHeight="421.0" prefWidth="200" styleClass="nav-drawer" stylesheets="@../css/navbar.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GuiNavbarController">
+    <children>
+        <ImageView fx:id="logoImageView" fitHeight="100.0" fitWidth="200.0" styleClass="logo">
+            <image>
+                <Image url="@../images/logo.png" />
+            </image>
+        </ImageView>
+        <Region prefHeight="50.0" prefWidth="200.0" />
+        <HBox alignment="CENTER">
+            <children>
+                <Label fx:id="employeeRoleLabel" styleClass="title" text="Admin View" />
+            </children>
+        </HBox>
+        <Region prefHeight="50.0" prefWidth="200.0" />
+        <VBox fx:id="buttons">
+            <ToggleButton fx:id="ordersButton" maxWidth="Infinity" onAction="#handleOrdersButton" styleClass="toggle-button" text="Orders" />
+            <ToggleButton fx:id="clientsButton" maxWidth="Infinity" onAction="#handleClientsButton" styleClass="toggle-button" text="Clients" />
+            <ToggleButton fx:id="carriersButton" maxWidth="Infinity" onAction="#handleCarriersButton" styleClass="toggle-button" text="Carriers" />
+            <ToggleButton fx:id="employeesButton" maxWidth="Infinity" onAction="#handleEmployeesButton" styleClass="toggle-button" text="Employees" />
+            <ToggleButton fx:id="boxesButton" maxWidth="Infinity" onAction="#handleBoxesButton" styleClass="toggle-button" text="Boxes" />
+        </VBox>
+        <Region VBox.vgrow="ALWAYS" />
+        <HBox fx:id="welcomeBox">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <children>
+                <Label fx:id="welcomeLabel" text="Welcome ">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="usernameLabel">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogoutButton" styleClass="toggle-button" text="Logout" />
+    </children>
+</VBox>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import ValidatingTextField?>-->
+
+<?import gui.ValidatingPasswordField?>
+<?import gui.ValidatingTextField?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="anchorPane" stylesheets="/css/global.css"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="controllers.GuiLoginController">
+    <ImageView fx:id="backgroundImage">
+        <image>
+            <Image url="@../images/background.png"/>
+        </image>
+    </ImageView>
+    <StackPane fx:id="loginCard" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+               AnchorPane.topAnchor="0">
+        <VBox fx:id="loginBox" alignment="CENTER" spacing="20">
+            <GridPane alignment="CENTER" hgap="10" maxHeight="300" maxWidth="400" styleClass="card" vgap="10">
+                <Text styleClass="title" text="Login to Portal" GridPane.columnIndex="1" GridPane.columnSpan="2"
+                      GridPane.rowIndex="0"/>
+                <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <ValidatingTextField fx:id="emailTextField" onKeyPressed="#handleKeyPressed"
+                                     GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <ValidatingPasswordField fx:id="passwordField" onKeyPressed="#handleKeyPressed"
+                                         GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label fx:id="errorLabel" alignment="CENTER" styleClass="error-text" text="Invalid input"
+                       textFill="#fa0505" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4"/>
+                <Button fx:id="loginButton" alignment="CENTER" minWidth="-Infinity" onAction="#handleLogin"
+                        prefHeight="26.0" prefWidth="200.0" text="Login" GridPane.columnIndex="1"
+                        GridPane.columnSpan="1" GridPane.rowIndex="5"/>
+                <columnConstraints>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                </rowConstraints>
+            </GridPane>
+        </VBox>
+        <ProgressIndicator fx:id="loadingProgressIndicator" visible="false"/>
+    </StackPane>
+</AnchorPane>
